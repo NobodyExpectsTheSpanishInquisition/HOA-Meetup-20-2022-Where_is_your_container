@@ -24,5 +24,19 @@ services:
     container_name: ${NGINX_CONTAINER_NAME}
     volumes:
       - ./front/helloWorld/dist:/var/www/html/app/:rw
+      - ./api/helloWorld:/var/www/html/api/:rw
     ports:
-      - ${NGINX_EXTERNAL_PORT}:${NGINX_INTERNAL_PORT}
+      - ${NGINX_ANGULAR_EXTERNAL_PORT}:${NGINX_ANGULAR_EXTERNAL_PORT}
+      - ${NGINX_API_EXTERNAL_PORT}:${NGINX_API_INTERNAL_PORT}
+
+  api:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+      args:
+        - IMAGE_TAG=${NODE_API_IMAGE_TAG}
+    container_name: ${NODE_API_CONTAINER_NAME}
+    volumes:
+      - ./api/helloWorld:/usr/src/app:rw

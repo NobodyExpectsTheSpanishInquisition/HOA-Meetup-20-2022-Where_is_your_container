@@ -18,3 +18,5 @@ server {
     try_files $uri $uri/ /index.html =404;
   }
 }
+
+TODO ADD CONFIGURATION FOR NODE API
