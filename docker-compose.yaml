@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  angular:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.angular
+      args:
+        - IMAGE_TAG=${ANGULAR_IMAGE_TAG}
+    container_name: ${ANGULAR_CONTAINER_NAME}
+    volumes:
+      - ./front:/usr/src/app:rw
+
+#  nginx:
+#    env_file:
+#      - .env
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.nginx
+#      args:
+#        - IMAGE_TAG=${NGINX_IMAGE_TAG}
+#    container_name: ${NGINX_CONTAINER_NAME}
+#    volumes:
+#      - ./front/helloWorld/dist:/var/www/html/app/:rw
+#    ports:
+#      - "8080:80"

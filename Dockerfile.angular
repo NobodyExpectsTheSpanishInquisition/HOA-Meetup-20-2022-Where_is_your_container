@@ -1,0 +1,9 @@
+ARG IMAGE_TAG
+FROM node:${IMAGE_TAG}
+
+RUN npm install -g @angular/cli
+
+WORKDIR /usr/src/app/helloWorld
+
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
