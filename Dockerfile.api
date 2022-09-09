@@ -1,8 +1,7 @@
 ARG IMAGE_TAG
 FROM node:${IMAGE_TAG}
 
-WORKDIR /usr/src/app
-
+WORKDIR /usr/src/api
 
 ENTRYPOINT ["tail"]
 CMD ["-f","/dev/null"]

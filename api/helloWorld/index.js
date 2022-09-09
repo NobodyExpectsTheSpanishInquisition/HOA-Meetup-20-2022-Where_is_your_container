@@ -2,8 +2,8 @@ const express = require('express');
 
 const app = express();
 
-app.get('/ping', (req, res) => {
-    res.send('pong');
+app.get('/hello', (req, res) => {
+    res.send("GENERAL KENOBI !");
 });
 
 app.listen(3000, () => {
